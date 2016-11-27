@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="style.css">
+	<style>
+		#accordeon {
+			position: relative;
+			width: 400px;
+			border: 2px solid black;
+			border-radius: 5px;
+		}
+		.item:not(:last-child) {
+			border-bottom: 1px solid black;
+		}
+
+		.item .header {
+			cursor: pointer;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			-o-user-select: none;
+			user-select: none;
+		}
+
+		.content {
+			display: none;
+		}
+
+		.show {
+			display: block;
+		}
+	</style>
+</head>
+<body>
+<div id="accordeon">
+	<div class="item">
+		<div class="header">О компании</div>
+		<div class="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi quasi id maiores harum obcaecati praesentium inventore, amet! Officia aliquam, harum aperiam velit vero culpa ipsam laboriosam consectetur nisi magnam! Sunt.</div>
+	</div>
+	<div class="item">
+		<div class="header">Услуги</div>
+		<div class="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus aliquid ea voluptatem magni porro hic esse, repellendus id, quaerat, similique cumque. Repudiandae quaerat nulla sunt laboriosam, atque cupiditate neque vel deleniti optio facilis aliquam, tempora minima nisi sit veniam, voluptatem placeat consequatur ipsam. Consequuntur modi cumque ullam et. Quaerat, enim? Tempore temporibus iste incidunt, libero unde recusandae non fugit in ab necessitatibus cupiditate obcaecati minima quos iusto vero consectetur provident facilis rerum, sequi sint eveniet! Odio suscipit itaque at! Accusamus, veniam sapiente voluptas corporis. Alias asperiores cumque maiores, exercitationem ut, nisi debitis ipsa reprehenderit repellat repudiandae, molestias eaque officiis accusamus!</div>
+	</div>
+	<div class="item">
+		<div class="header">Наши проекты</div>
+		<div class="content"><div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio veritatis dolorum sunt, eius consequuntur nemo odit non alias perferendis quae, exercitationem accusantium veniam laboriosam dicta explicabo minima! Illum dolorum, necessitatibus.</div>
+		<div>Voluptates possimus autem aliquid, sunt quam veniam, molestiae eveniet. Eveniet nulla dolores, inventore doloribus, sint provident illum facere neque temporibus architecto ex animi est? Quae deserunt qui, facilis maiores minus.</div></div>
+	</div>
+	<div class="item">
+		<div class="header">Контакты</div>
+		<div class="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, eos.</div>
+	</div>
+</div>
+<script>
+(function () {
+	let current;
+	let accordeon = document.getElementById('accordeon');
+	accordeon.addEventListener('click', function (e) {
+	let target = e.target;
+	if(!target.classList.contains('header')){
+		return;	
+	};
+		
+	if (target.nextElementSibling.classList.contains('show')) {
+		current = null;
+		target.nextElementSibling.classList.toggle('show');
+	} else {
+		if (current) {
+			current.nextElementSibling.classList.toggle('show')
+		}
+		current = target;
+		current.nextElementSibling.classList.toggle('show');
+	}
+	
+	});
+})();
+
+</script>
+	
+</body>
+</html>
